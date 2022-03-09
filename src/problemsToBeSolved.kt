@@ -21,7 +21,7 @@ fun main(){
 
 
 
-    
+
 }
 
 
@@ -78,7 +78,6 @@ class problemsToBeSolved() {
             if (e is Int)
                 flatList.add(e)
             else
-            // using unchecked cast here as can't check for instance of 'erased' generic type
                 flattenList(e as List<Any>, flatList)
     }
 
