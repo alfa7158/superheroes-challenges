@@ -1,0 +1,93 @@
+import java.util.*
+
+
+fun main(){
+    val x = problemsToBeSolved()
+
+    println( x.closingPair("{()"))
+        val numbers: List<Any?> = listOf(1, 2,listOf(4,3), null, 4)
+        val nonNullNumbers = numbers.filterNotNull()
+
+
+        println(nonNullNumbers) // [1, 2, 4]
+
+        val flatList = mutableListOf<Int>()
+        x.flattenList(nonNullNumbers, flatList)
+        println("Flattened : " + flatList)
+
+
+
+    val list = arrayListOf(1,arrayListOf(1,2,3,null), arrayListOf(5,6,7))
+
+
+
+    
+}
+
+
+
+class problemsToBeSolved() {
+
+
+    fun onlyOnce(listA: List<Int>) {
+
+        for (i in listA.indices) {
+            var counter = 0
+            for (element in listA) {
+                if (listA[i] == element) {
+                    counter++
+                }
+            }
+            if (counter == 1) {
+                println(listA[i])
+            }
+        }
+
+    }
+
+   fun changeUpperAndLower(myString: String) {
+    for (i in myString) {
+        when {
+            i.isLowerCase() -> print(i.toUpperCase())
+            i.isUpperCase() -> print(i.toLowerCase())
+            else -> print(i)
+        }
+    }
+
+
+        }
+
+    fun closingPair(theString: String): Boolean {
+        val theStack = Stack<Char>()
+        for (element in theString) {
+            if (element == '[' || element == '{' || element == '(') theStack.push(element)
+            else if (element == ']' || element == '}' || element == ')') {
+                if (theStack.empty()) return false
+                when (element) {
+                    ']' -> if (theStack.pop() != '[') return false
+                    '}' -> if (theStack.pop() != '{') return false
+                    ')' -> if (theStack.pop() != '(') return false
+                    else -> {}
+                }
+            }
+        }
+        return theStack.empty()
+    }
+    fun flattenList(nestList: List<Any>, flatList: MutableList<Int>) {
+        for (e in nestList)
+            if (e is Int)
+                flatList.add(e)
+            else
+            // using unchecked cast here as can't check for instance of 'erased' generic type
+                flattenList(e as List<Any>, flatList)
+    }
+
+
+
+
+
+
+    }
+
+
+
