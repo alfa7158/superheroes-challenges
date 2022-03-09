@@ -4,12 +4,11 @@ import java.util.*
 fun main(){
     val x = problemsToBeSolved()
 
-    println( x.closingPair("{()"))
+
         val numbers: List<Any?> = listOf(1, 2,listOf(4,3), null, 4)
         val nonNullNumbers = numbers.filterNotNull()
 
 
-        println(nonNullNumbers) // [1, 2, 4]
 
         val flatList = mutableListOf<Int>()
         x.flattenList(nonNullNumbers, flatList)
@@ -17,7 +16,6 @@ fun main(){
 
 
 
-    val list = arrayListOf(1,arrayListOf(1,2,3,null), arrayListOf(5,6,7))
 
 
 
